@@ -14,25 +14,34 @@ int main()
     //         break;
     //     }
 
-    int N = 20;
-    for (int i = 2; i <= N; i++)
-    {
-        int curr = i; // current number to check for
-        bool isPrime = true;
-        for (int j = 2; j * j <= i; j++)
-        {
-            if (curr % j == 0)
-            {
-                isPrime = false;
-            }
-        }
+    // int N = 20;
+    // for (int i = 2; i <= N; i++)
+    // {
+    //     int curr = i; // current number to check for
+    //     bool isPrime = true;
+    //     for (int j = 2; j * j <= i; j++)
+    //     {
+    //         if (curr % j == 0)
+    //         {
+    //             isPrime = false;
+    //         }
+    //     }
 
-        if (isPrime)
-        {
-            cout << curr << " ";
-        }
+    //     if (isPrime)
+    //     {
+    //         cout << curr << " ";
+    //     }
+    // }
+    // cout << endl;
+
+    int n =12345;
+    int rev = 0;
+    while(n>0){
+        int rem = n%10;
+        rev = rev*10+rem;
+        n/=10;
     }
-    cout << endl;
+    cout<<rev;
 
     return 0;
 }
