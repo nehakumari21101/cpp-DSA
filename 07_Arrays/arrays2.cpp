@@ -33,6 +33,7 @@ void maxSubarraySum1(int *arr, int n){
     cout << "maximum subarray sum = "<<maxSum<<endl;
 }
 
+//max sum subarray - o(n^2)
 void maxSubarraySum2(int *arr, int n){
     int maxSum = INT_MIN;
     for(int start=0; start<n; start++){
@@ -46,6 +47,7 @@ void maxSubarraySum2(int *arr, int n){
     cout << "maximum subarray sum = "<<maxSum<<endl;
 }
 
+// max sum subarray - Kadane's algorithm - o(n)
 void maxSubarraySum3(int *arr, int n){
     int maxSum = INT_MIN;
         int sum = 0;
@@ -59,14 +61,31 @@ void maxSubarraySum3(int *arr, int n){
     cout << "maximum subarray sum = "<<maxSum<<endl;
 }
 
+//Buy and sell stocks
+void maxProfit(int *prices,int n){
+    int bestBuy[100000];
+    bestBuy[0] = INT_MAX;
+    for(int i=1; i<n; i++){
+        bestBuy[i] = min(bestBuy[i-1], prices[i-1]);
+    }
+
+    int maxProfit = 0;
+    for(int i=0; i<n; i++){
+        int currProfit = prices[i] - bestBuy[i];
+        maxProfit = max(maxProfit, currProfit);
+    }
+    cout<<"max Profit = "<<maxProfit<<endl;
+}
+
 int main(){
-    int arr[]={-6, 2, -3, 4, 5};
+    int arr[]={7, 2, 1, 4, 5};
     int n = sizeof(arr)/sizeof(int);
 
     printSubarrays(arr, n);
     maxSubarraySum1(arr, n);
     maxSubarraySum2(arr, n);
     maxSubarraySum3(arr, n);
+    maxProfit(arr, n);
 
     return 0;
 }
