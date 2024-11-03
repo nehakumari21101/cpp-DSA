@@ -1,7 +1,7 @@
 #include<iostream>
 #include <climits>
 // #include <algorithm> 
-// #include<cmath>
+#include<cmath>
 using namespace std;
 
 void printSubarrays(int *arr, int n){
@@ -26,7 +26,7 @@ void maxSubarraySum1(int *arr, int n){
                 sum += arr[i];
             }
             cout<<sum<<", ";
-            maxSum = max(sum, maxSum);
+            maxSum = math.max(sum, maxSum);
         }
         cout<<endl;
     }
@@ -76,6 +76,21 @@ void maxProfit(int *prices,int n){
     }
     cout<<"max Profit = "<<maxProfit<<endl;
 }
+
+//Trapping water
+// void trap( int *heights, int n){
+//     int leftMax[20000], rightMax[20000];
+//     leftMax[0] = heights[0];
+//     rightMax[n-1] = heights[n-1];
+//     for(int i=1; i<n; i++){
+//         rightMax[i] = max(rightMax[i+1], heights[i+1]);
+//     }
+
+//     int waterTapped = 0;
+//     for(int i=0; i<n; i++){
+//         int currWater = min(leftMax[i], rightMax[i]);
+//     }
+// }
 
 int main(){
     int arr[]={7, 2, 1, 4, 5};
